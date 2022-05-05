@@ -12,4 +12,34 @@ https://github.com/ArduCAM/ArduCAM_ESP8266_UNO
 ## Demonstrated Embedded Platforms 
 * TI CC3235 ( Wifi SoC) 
 
-## How to Use 
+## How to Use
+```
+void main(void *arg0)
+{
+
+    ArduCam_t acam;
+    acam.spi_write = acam_spi_write;
+    acam.spi_read = acam_spi_read;
+    acam.spi_cs_low = acam_spi_cs_low;
+    acam.spi_cs_high = acam_spi_cs_high;
+    acam.i2c_write = i2c_write;
+    acam.i2c_read = i2c_read;
+    acam.delay_ms = acam_delay_ms;
+
+    ACAM_Init(&acam);
+    ACAM_OV2640_set_JPEG_size(&acam,OV2640_320x240);
+
+    ACAM_clear_fifo_flag(&acam);
+
+    while(1){
+        ACAM_clear_fifo_flag(&acam);
+        ACAM_start_capture(&acam);
+
+        /* wait for a capture to finish */
+        while(!ACAM_get_bit(&acam,ARDUCHIP_TRIG, CAP_DONE_MASK));
+        camCapture(&acam);
+        Task_sleep(1);
+    }
+
+}
+```

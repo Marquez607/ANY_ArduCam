@@ -13,6 +13,9 @@ https://github.com/ArduCAM/ArduCAM_ESP8266_UNO
 * TI CC3235 ( Wifi SoC) 
 
 ## How to Use
+
+Below shows the init sequence and functions you would need to provide to use the library. I recommend reviewing some of the original ArduCam code to get a grasp of what's happening. Please check the full example as reading data from the camera is currently highly entangled with your actual application. In the original case, thsi was set up for camera streaming so partial blocks of the image were sent over the network. I have not yet produced an example in which a full image is read before processing. 
+
 ```
 void main(void *arg0)
 {

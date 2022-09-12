@@ -1,5 +1,5 @@
 # ANY_ArduCam
-Hardware Agnostic Driver for using the OV2640 based ArduCam. This library is currently friendly to low level embedded platforms. This is currently not a full featured as the original ArduCam arduino library supports many camera platforms as well as has other image format. Currently the only support image format for this platform is 
+Hardware Agnostic Driver for using the OV2640 based ArduCam. This library is currently friendly to low level embedded platforms. This is currently not as full featured as the original ArduCam arduino library supports many camera platforms as well as has other image format. Currently the only support image format for this platform is 
 JPEG. Other functionality should be easy to add. This code was adpated from their ESP32 example. 
 
 ## Why?
